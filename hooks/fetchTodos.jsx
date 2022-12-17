@@ -17,19 +17,17 @@ export default function useFetchTodos() {
                 const docSnap = await getDoc(docRef)
                 if (docSnap.exists()) {
                     setTodos(docSnap.data().todos)
-                    // setTodos('todos' in docSnap.data() ? docSnap.data().todos : {})
                 } else {
                     setTodos({})
                 }
             } catch (err) {
                 setError('Failed to load todos')
-                console.log(err)
             } finally {
                 setLoading(false)
             }
         }
         fetchData()
-    }, [])
+    })
 
     return { loading, error, todos, setTodos }
 }

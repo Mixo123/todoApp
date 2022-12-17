@@ -13,16 +13,6 @@ export default function UserDashboard() {
 
     const { todos, setTodos, loading, error } = useFetchTodos()
 
-
-
-    console.log(todos)
-
-    // useEffect(() => {
-    //     if (!userInfo || Object.keys(userInfo).length === 0) {
-    //         setAddTodo(true)
-    //     }
-    // }, [userInfo])
-
     async function handleAddTodo() {
         if (!todo) { return }
         const newKey = Object.keys(todos).length === 0 ? 1 : Math.max(...Object.keys(todos)) + 1
@@ -52,8 +42,6 @@ export default function UserDashboard() {
 
     function handleAddEdit(todoKey) {
         return () => {
-            console.log(todos[todoKey])
-            console.log('bannan')
             setEdit(todoKey)
             setEdittedValue(todos[todoKey])
         }
